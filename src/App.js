@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Post from './Post';
+import data from './data.js';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        setPosts(data);
+    }, []);
+
+    const changeRating = e => {
+        // setPosts([...posts, { ...post, rating: rating + userRating }]);
+    };
+
+    return (
+        <main className="main">
+            {posts
+                .sort((a, b) => a - b)
+                .map(post => {
+                    return <Post key={post.id} {...post} />;
+                })}
+        </main>
+    );
 }
 
 export default App;
