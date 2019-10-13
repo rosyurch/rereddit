@@ -9,7 +9,7 @@ const data = [
     },
     {
         id: 1,
-        title: 'Astralis vs Fnatic / Dreamhack Masters Malmo 2019 Semi-final / Post-match discussion',
+        title: 'Liquid vs Cloud9 / Dreamhack Masters Malmo 2019 Semi-final / Post-match discussion',
         flair: 'Discussion | Esports',
         rating: 42,
         author: { name: 'someWomble', flair: 'Baggage Veteran' },
@@ -17,7 +17,7 @@ const data = [
     },
     {
         id: 2,
-        title: 'Astralis vs Fnatic / Dreamhack Masters Malmo 2019 Semi-final / Post-match discussion',
+        title: 'Vitality vs G2 / Dreamhack Masters Malmo 2019 Semi-final / Post-match discussion',
         flair: 'Discussion | Esports',
         rating: 51,
         author: { name: 'someWomble', flair: 'Baggage Veteran' },

@@ -5,21 +5,29 @@ function Post(props) {
     const [userRating, setUserRating] = useState(0); //   0 - not voted; 1 - up; -1 - down
     const [isClosed, setIsClosed] = useState(true);
 
-    const { title, flair, rating, author, comments } = props;
+    const { id, title, flair, rating, author, comments, vote } = props;
 
     const upvoteHandle = e => {
         if (userRating === 1) {
             setUserRating(0);
+            vote(props, -1);
         } else {
             setUserRating(1);
+
+            if (userRating === -1) vote(props, 2);
+            else vote(props, 1);
         }
     };
 
     const downvoteHandle = e => {
         if (userRating === -1) {
             setUserRating(0);
+            vote(props, 1);
         } else {
             setUserRating(-1);
+
+            if (userRating === 1) vote(props, -2);
+            else vote(props, -1);
         }
     };
 
@@ -33,7 +41,7 @@ function Post(props) {
                 <button className="upvote-arrow" onClick={upvoteHandle} style={{ color: `${userRating === 1 ? 'red' : '#888'}` }}>
                     &#8593;
                 </button>
-                <div className="rating-number">{rating + userRating}</div>
+                <div className="rating-number">{rating}</div>
                 <button className="downvote-arrow" onClick={downvoteHandle} style={{ color: `${userRating === -1 ? 'blue' : '#888'}` }}>
                     &#8595;
                 </button>
