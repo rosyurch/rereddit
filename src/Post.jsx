@@ -1,33 +1,36 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import './Post.css';
 
 function Post(props) {
     const [userRating, setUserRating] = useState(0); //   0 - not voted; 1 - up; -1 - down
     const [isClosed, setIsClosed] = useState(true);
 
-    const { id, title, flair, rating, author, comments, vote } = props;
+    const { id, title, flair, rating, author, comments } = props.post;
 
     const upvoteHandle = e => {
         if (userRating === 1) {
             setUserRating(0);
-            vote(props, -1);
+
+            // vote(props, -1);
         } else {
             setUserRating(1);
 
-            if (userRating === -1) vote(props, 2);
-            else vote(props, 1);
+            // if (userRating === -1) vote(props, 2);
+            // else vote(props, 1);
         }
     };
 
     const downvoteHandle = e => {
         if (userRating === -1) {
             setUserRating(0);
-            vote(props, 1);
+
+            // vote(props, 1);
         } else {
             setUserRating(-1);
 
-            if (userRating === 1) vote(props, -2);
-            else vote(props, -1);
+            // if (userRating === 1) vote(props, -2);
+            // else vote(props, -1);
         }
     };
 
@@ -88,4 +91,9 @@ function Post(props) {
     );
 }
 
-export default Post;
+const mapStateToProps = (state, id) => {
+    const post = state.filter(post => post.id === id.id)[0];
+    return { post };
+};
+
+export default connect(mapStateToProps)(Post);

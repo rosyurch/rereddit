@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStore } from 'redux';
-import { connect, Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import './App.css';
 import Post from './Post';
 import data from './data.js';
@@ -31,14 +31,13 @@ const posts = (state = [], action) => {
     } else return state;
 };
 
-const store = createStore(posts);
+const store = createStore(posts, data);
 
 class App extends React.Component {
     state = { posts: [] };
 
     componentDidMount() {
         // this.setState({ posts: data });
-        // store.dispatch();
     }
 
     // vote = (curPost, userRating) => {
@@ -63,7 +62,7 @@ class App extends React.Component {
                     {[...store.getState()] // avoid mutation by sort()
                         .sort((a, b) => b.rating - a.rating)
                         .map(post => {
-                            return <Post key={post.id} vote={this.vote} {...post} />;
+                            return <Post key={post.id} id={post.id} />;
                         })}
                 </main>
             </Provider>
