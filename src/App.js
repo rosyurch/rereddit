@@ -10,10 +10,7 @@ const posts = (state = [], action) => {
         return state.map(p => {
             if (p.id !== action.id) return p;
             return {
-                id: p.id,
-                title: p.title,
-                author: p.author,
-                comments: p.comments,
+                ...p,
                 rating: p.rating + 1,
             };
         });
@@ -21,10 +18,7 @@ const posts = (state = [], action) => {
         return state.map(p => {
             if (p.id !== action.id) return p;
             return {
-                id: p.id,
-                title: p.title,
-                author: p.author,
-                comments: p.comments,
+                ...p,
                 rating: p.rating - 1,
             };
         });
@@ -39,21 +33,6 @@ class App extends React.Component {
     componentDidMount() {
         // this.setState({ posts: data });
     }
-
-    // vote = (curPost, userRating) => {
-    //     const updPosts = this.state.posts.map(p => {
-    //         if (p.id !== curPost.id) return p;
-    //         return {
-    //             id: curPost.id,
-    //             title: curPost.title,
-    //             flair: curPost.flair,
-    //             author: curPost.author,
-    //             comments: curPost.comments,
-    //             rating: curPost.rating + userRating,
-    //         };
-    //     });
-    //     this.setState({ posts: updPosts });
-    // };
 
     render() {
         return (

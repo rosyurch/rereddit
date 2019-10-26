@@ -10,13 +10,15 @@ function Post(props) {
     const { upvote, downvote } = props;
     const { id, title, flair, rating, author, comments } = props.post;
 
+    // const initialRating = rating; // DO NOT CHANGE
+
     const upvoteHandle = e => {
         if (userRating === 1) {
             setUserRating(0);
         } else {
             setUserRating(1);
 
-            upvote(id);
+            // upvote(id);
         }
     };
 
@@ -25,8 +27,6 @@ function Post(props) {
             setUserRating(0);
         } else {
             setUserRating(-1);
-
-            downvote(id);
         }
     };
 
