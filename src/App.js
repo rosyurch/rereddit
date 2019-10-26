@@ -31,7 +31,7 @@ const posts = (state = [], action) => {
     } else return state;
 };
 
-const store = createStore(posts, data);
+const store = createStore(posts, data, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends React.Component {
     state = { posts: [] };
