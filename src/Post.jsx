@@ -8,26 +8,24 @@ function Post(props) {
     const [isClosed, setIsClosed] = useState(true);
 
     const { upvote, downvote } = props;
-    const { id, title, flair, rating, author, comments } = props.post;
-
-    // const initialRating = rating; // DO NOT CHANGE
+    const { id, title, flair, rating, author, comments, voteStatus } = props.post;
 
     const upvoteHandle = e => {
-        if (userRating === 1) {
-            setUserRating(0);
-        } else {
-            setUserRating(1);
-
-            // upvote(id);
-        }
+        // if (userRating === 1) {
+        //     setUserRating(0);
+        // } else {
+        //     setUserRating(1);
+        // }
+        if (voteStatus === '') upvote(id);
+        // else if(voteStatus=== 'down')
     };
 
     const downvoteHandle = e => {
-        if (userRating === -1) {
-            setUserRating(0);
-        } else {
-            setUserRating(-1);
-        }
+        // if (userRating === -1) {
+        //     setUserRating(0);
+        // } else {
+        //     setUserRating(-1);
+        // }
     };
 
     const openHandle = e => {

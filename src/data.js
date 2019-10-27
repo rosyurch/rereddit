@@ -6,6 +6,7 @@ const data = [
         rating: 41,
         author: { name: 'someWomble', flair: 'Baggage Veteran' },
         comments: { amount: 110 },
+        voteStatus: '',
     },
     {
         id: 1,
@@ -14,6 +15,7 @@ const data = [
         rating: 42,
         author: { name: 'someWomble', flair: 'Baggage Veteran' },
         comments: { amount: 110 },
+        voteStatus: '',
     },
     {
         id: 2,
@@ -22,6 +24,7 @@ const data = [
         rating: 51,
         author: { name: 'someWomble', flair: 'Baggage Veteran' },
         comments: { amount: 110 },
+        voteStatus: '',
     },
 ];
 

@@ -11,6 +11,7 @@ const posts = (state = [], action) => {
             if (p.id !== action.id) return p;
             return {
                 ...p,
+                voteStatus: 'up',
                 rating: p.rating + 1,
             };
         });
@@ -19,6 +20,7 @@ const posts = (state = [], action) => {
             if (p.id !== action.id) return p;
             return {
                 ...p,
+                voteStatus: 'down',
                 rating: p.rating - 1,
             };
         });
